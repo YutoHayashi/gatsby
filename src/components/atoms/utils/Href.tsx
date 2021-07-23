@@ -4,11 +4,11 @@ import { app } from '../../../contexts/contexts';
 
 interface Props {
     to: string;
-    activeClass: string;
+    activeClassName: string;
 }
 
-const DEFAULT_PROPS: Pick<Props, 'activeClass'> = {
-    activeClass: '',
+const DEFAULT_PROPS: Pick<Props, 'activeClassName'> = {
+    activeClassName: '',
 };
 
 export const Href: React.FunctionComponent<Partial<Props> & Pick<Props, 'to'>> = ( _props ) => {

@@ -7,6 +7,7 @@ interface Props {
     lineHeight: string;
     size: string;
     align: 'center' | 'start' | 'end';
+    inline: boolean;
 }
 
 const DEFAULT_PROPS: Props = {
@@ -15,6 +16,7 @@ const DEFAULT_PROPS: Props = {
     lineHeight: '1',
     size: '1.0',
     align: 'center',
+    inline: false,
 };
 
 export const Text: React.FunctionComponent<Partial<Props>> = ( _props ) => {
@@ -23,7 +25,7 @@ export const Text: React.FunctionComponent<Partial<Props>> = ( _props ) => {
     return (
         <app.Consumer>
             { ( { taxonomy } ) => (
-                <div className={ className( taxonomy ) } style={ { display: 'inline', textAlign: props.align } }>
+                <div className={ className( taxonomy ) } style={ { display: `inline${ props.inline ? '' : '-block' }`, textAlign: props.align } }>
                     { props.children }
                 </div>
             ) }

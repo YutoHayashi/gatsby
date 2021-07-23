@@ -16,7 +16,7 @@ export const Image: React.FunctionComponent<Partial<Props> & Pick<Props, 'src'>>
     return (
         <app.Consumer>
             { ( { taxonomy } ) => (
-                <img className={ className( taxonomy ) } { ...props } style={ { verticalAlign: 'bottom', objectFit: 'cover' } }/>
+                <img className={ className( taxonomy ) } width='100%' height='100%' { ...props } style={ { verticalAlign: 'bottom', objectFit: 'cover' } }/>
             ) }
         </app.Consumer>
     );
