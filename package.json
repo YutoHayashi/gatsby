@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "fsevents": "1.2.11",
     "gatsby": "^3.10.1",
     "gatsby-plugin-gatsby-cloud": "^2.10.0",
     "gatsby-plugin-image": "^1.10.1",
@@ -46,7 +47,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "resolutions": {
-    "fsevents": "1.2.9",
-    "**/fsevents": "1.2.9"
+    "fsevents": "1.2.11",
+    "**/fsevents": "1.2.11"
   }
 }
