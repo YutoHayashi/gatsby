@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+$radius-unit: 2;
+
+.radius {
+    @for $i from 0 through 20 {
+        &-#{ $i } {
+            border-radius: #{ $i * $radius-unit }px;
+        }
+    }
+    &-harf { border-radius: 50%; }
+}

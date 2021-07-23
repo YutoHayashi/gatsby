@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+$width-unit: 10;
+
+.w {
+    @for $i from 0 through 30 {
+        &-#{ $i } {
+            width: #{ $width-unit * $i }px;
+        }
+    }
+    &-100 { width: 100%; }
+}

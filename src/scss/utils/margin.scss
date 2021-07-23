@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+$margin-unit: 5;
+
+@each $direction-alias, $direction in $directions {
+    .m#{ $direction-alias }-auto {
+        margin-#{ $direction }: auto;
+    }
+    @for $i from 0 through 12 {
+        .m#{ $direction-alias }-#{ $i } {
+            margin-#{ $direction }: #{ $margin-unit * $i }px;
+        }
+    }
+}

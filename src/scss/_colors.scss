@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+$themes: (
+    light: (
+        'transparent': transparent,
+        'primary': #03A9F4,
+        'secondary': #2196F3,
+        'accent': #E91E63,
+        'success': #4CAF50,
+        'danger' : #F44336,
+        'warning': #FFC107,
+        'info': #00BCD4,
+        'light': #F6F6F6,
+        'dark': #000,
+        'white': #FFF,
+        'shadow': #CCC,
+    ),
+    dark: (
+        'transparent': transparent,
+        'primary': #03A9F4,
+        'secondary': #2196F3,
+        'accent': #E91E63,
+        'success': #4CAF50,
+        'danger' : #F44336,
+        'warning': #FFC107,
+        'info': #00BCD4,
+        'light': #F6F6F6,
+        'dark': #000,
+        'white': #FFF,
+        'shadow': #CCC,
+    ),
+);
+
+@mixin root-theme( $map ) {
+    :root {
+        @each $alias, $value in $map {
+            --#{ $alias }: #{ $value };
+        }
+    }
+}
+
+@mixin theme-create( $colors ) {
+    @each $color-alias, $color in $colors {
+        .#{ $color-alias } {
+            background-color: $color;
+            &--text { color: $color; }
+            &--border {
+                border: 1px solid $color;
+                @each $direction-alias, $direction in $directions {
+                    &-#{ $direction } {
+                        border-#{ $direction }: 1px solid $color;
+                    }
+                }
+            }
+            &--boxShadow { box-shadow: 2px 2px 5px $color; }
+            &-shadow { text-shadow: 2px 2px 5px $color; }
+        }
+    }
+}
+
+body#theme-light {
+    @include theme-create( map-get( $themes, 'light' ) );
+    @include root-theme( map-get( $themes, 'light' ) );
+}
+@include theme-create( map-get( $themes, 'light' ) );
+@include root-theme( map-get( $themes, 'light' ) );
+
+body#theme-dark {
+    @include theme-create( map-get( $themes, 'dark' ) );
+    @include root-theme( map-get( $themes, 'dark' ) );
+}
+@media ( prefers-color-scheme: dark ) {
+    @include theme-create( map-get( $themes, 'dark' ) );
+    @include root-theme( map-get( $themes, 'dark' ) );
+}

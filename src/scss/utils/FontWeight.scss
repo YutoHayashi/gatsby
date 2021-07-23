@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.weight {
+    @each $weight-alias, $weight in $weights {
+        &-#{ $weight-alias } {
+            font-weight: $weight;
+        }
+    }
+}

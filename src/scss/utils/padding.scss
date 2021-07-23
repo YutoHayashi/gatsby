@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+$padding-unit: 5;
+
+@each $direction-alias, $direction in $directions {
+    .p#{ $direction-alias }-auto {
+        padding-#{ $direction }: auto;
+    }
+    @for $i from 0 through 12 {
+        .p#{ $direction-alias }-#{ $i } {
+            padding-#{ $direction }: #{ $padding-unit * $i }px;
+        }
+    }
+}
